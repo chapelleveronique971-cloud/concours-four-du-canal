@@ -1,0 +1,3 @@
+{ "name": "four-du-canal-tests", "private": true, "type": "module",
+  "scripts": { "test-base": "node test-base.mjs ../supabase/01_schema.sql", "serveur": "node serveur-local.mjs" },
+  "dependencies": { "@electric-sql/pglite": "0.2.17" } }
