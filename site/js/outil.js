@@ -54,7 +54,25 @@ async function demarrer() {
     $('chargement').textContent = 'L’outil n’est pas encore branché à Supabase (voir js/config.js).';
     return;
   }
-  sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  // Une connexion PAR ONGLET (sessionStorage) : se connecter en juré dans un onglet
+  // ne remplace plus la connexion de la gérante ouverte dans un autre onglet.
+  // Identifiant propre à l'onglet (conservé s'il est rechargé) : la bibliothèque Supabase
+  // synchronise les onglets qui partagent la même clé ; une clé par onglet les rend indépendants.
+  let idOnglet = sessionStorage.getItem('four-du-canal-onglet');
+  if (!idOnglet) {
+    idOnglet = Math.random().toString(36).slice(2, 10);
+    sessionStorage.setItem('four-du-canal-onglet', idOnglet);
+  }
+  sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+    auth: { storage: window.sessionStorage, storageKey: `four-du-canal-outil-${idOnglet}` },
+  });
+  // Si la session de cet onglet se termine (expiration, déconnexion), on revient à l'écran de connexion
+  sb.auth.onAuthStateChange((evenement) => {
+    if (evenement === 'SIGNED_OUT' && etat.user) {
+      location.replace(`${location.pathname}#deconnecte`);
+      location.reload();
+    }
+  });
   const { data } = await sb.auth.getSession();
   if (data.session) await ouvrirSession(data.session.user);
   else if (location.hash === '#deconnecte') {
@@ -92,7 +110,8 @@ $('form-connexion').addEventListener('submit', async (e) => {
 });
 
 $('btn-deconnexion').addEventListener('click', async () => {
-  await sb.auth.signOut();
+  etat.user = null; // évite un double rechargement par onAuthStateChange
+  await sb.auth.signOut({ scope: 'local' }); // déconnecte cet onglet seulement (comptes de démo partagés)
   // Rechargement complet : aucune donnée de la session précédente ne reste dans la page
   location.replace(`${location.pathname}#deconnecte`);
   location.reload();
@@ -114,13 +133,14 @@ async function ouvrirSession(user) {
   $('badge-role').dataset.role = profil.role;
   $('nom-utilisateur').textContent = profil.nom;
 
+  // Critères chargés AVANT d'afficher les onglets (sinon un clic rapide pouvait être annulé)
+  const { data: criteres } = await sb.from('criteres').select('*').order('ordre_affichage');
+  etat.criteres = criteres || [];
   const nav = $('onglets');
   nav.innerHTML = '';
   for (const [id, libelle] of ONGLETS[profil.role]) {
     nav.append(el('button', { type: 'button', class: 'onglet', 'data-onglet': id, onclick: () => ouvrirOnglet(id) }, libelle));
   }
-  const { data: criteres } = await sb.from('criteres').select('*').order('ordre_affichage');
-  etat.criteres = criteres || [];
   ouvrirOnglet(ONGLETS[profil.role][0][0]);
 }
 
