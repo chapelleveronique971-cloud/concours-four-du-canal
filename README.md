@@ -65,7 +65,7 @@ Ils lancent 33 tests sur une copie locale de la base (sans toucher à Supabase).
 - Message de succès et **aperçu** de l'e-mail de confirmation.
 - Affichage adapté au téléphone (vérifié à 375 px).
 
-**Outil d'organisation** (accès par e-mail et mot de passe ; droits appliqués par la base, pas seulement par l'écran)
+**Outil d'organisation** (accès par e-mail et mot de passe ; droits appliqués par la base, pas seulement par l'écran ; **une connexion par onglet** : on peut ouvrir gérante, équipe et juré côte à côte dans le même navigateur)
 - **Équipe** : liste des participants, recherche, filtre, compteurs, pointage Inscrit / Présent / Désisté.
 - **Juré** : notation de 0 à 10 par critère des créations pointées « présentes », sous un numéro anonyme. Il ne voit ni les noms, ni les coordonnées, ni les notes des autres jurés.
 - **Gérante** : tout ce que voit l'équipe, plus la suppression d'une inscription, le classement calculé automatiquement (pondération, moyenne des jurés, départage par le Goût, mention « ex æquo : décision du jury »), le détail des notes pour vérification et les aperçus des e-mails de confirmation et de rappel.
