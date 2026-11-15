@@ -1,0 +1,91 @@
+/* Espace organisation (outil interne) — complète style.css */
+body.outil { background: #f4f6fb; }
+.outil__main { padding-top: 20px; padding-bottom: 48px; }
+.outil h1 { font-size: clamp(1.5rem, 5vw, 2rem); }
+.h2-simple { font-size: 1.2rem; margin-top: 28px; }
+.h2-simple::after, .outil h2::after { display: none; }
+.outil h2 { display: block; }
+
+.entete__session { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 700; padding: 6px 0; }
+.badge-role { border-radius: 999px; padding: 2px 12px; font-weight: 800; font-size: .85rem; color: var(--nuit); background: var(--jaune); }
+.badge-role[data-role="equipe"] { background: #9fe6d6; }
+.badge-role[data-role="jure"] { background: #ffc2d5; }
+.bouton--clair { background: transparent; border-color: #fff; color: #fff; box-shadow: none; }
+.bouton--clair:hover { background: rgba(255,255,255,.12); border-color: #fff; }
+
+.carte-outil { background: #fff; border-radius: 24px; padding: 24px 18px; box-shadow: 0 8px 30px rgba(29,42,91,.08); }
+.carte-outil--etroite { max-width: 460px; margin: 24px auto; }
+.aide--petite { font-size: .9rem; margin-top: 16px; color: var(--brun-doux); }
+
+/* Onglets */
+.onglets { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 18px; }
+.onglet { min-height: 44px; padding: 8px 18px; border-radius: 999px; border: 2px solid var(--nuit); background: #fff; color: var(--nuit); font: 800 1rem var(--police); cursor: pointer; }
+.onglet[aria-current="page"] { background: var(--nuit); color: #fff; }
+
+/* Compteurs et filtres */
+.compteurs { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px; }
+.compteur { background: #fff; border-radius: 14px; padding: 12px; display: flex; flex-direction: column; font-weight: 700; color: var(--brun-doux); font-size: .92rem; }
+.compteur__valeur { font: 700 1.6rem var(--police-titre); color: var(--nuit); }
+.filtres { display: grid; gap: 0 12px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .filtres { grid-template-columns: 2fr 1fr; } }
+
+/* Cartes participants / créations */
+.liste-cartes { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.carte-p { background: #fff; border-radius: 18px; padding: 16px; border: 2px solid transparent; box-shadow: 0 4px 16px rgba(29,42,91,.07); min-width: 0; }
+.carte-p--present { border-color: var(--menthe); }
+.carte-p--desiste { opacity: .7; }
+.carte-p__tete { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
+.carte-p__tete h2 { font-size: 1.2rem; margin: 0; overflow-wrap: anywhere; }
+.carte-p__creation { margin: 2px 0 0; color: var(--caramel-fonce); font-weight: 700; overflow-wrap: anywhere; }
+.dossard { flex-shrink: 0; background: var(--nuit); color: #fff; border-radius: 10px; padding: 4px 10px; font: 700 1rem var(--police-titre); }
+.infos { display: grid; grid-template-columns: max-content 1fr; gap: 4px 12px; margin: 12px 0 0; font-size: .95rem; }
+.infos dt { font-weight: 700; color: var(--brun-doux); }
+.infos dd { margin: 0; overflow-wrap: anywhere; }
+.carte-p__actions { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.confirmer { width: 100%; margin: 0; font-weight: 700; color: var(--rouge); }
+.vide { background: #fff; border-radius: 14px; padding: 16px; color: var(--brun-doux); }
+
+/* Statut : boutons segmentés */
+.segmente { display: grid; grid-template-columns: repeat(3, 1fr); border: 2px solid var(--nuit); border-radius: 12px; overflow: hidden; }
+.segmente__btn { min-height: 44px; border: 0; background: #fff; color: var(--nuit); font: 700 .95rem var(--police); cursor: pointer; }
+.segmente__btn + .segmente__btn { border-left: 2px solid var(--nuit); }
+.segmente__btn[aria-pressed="true"] { background: var(--nuit); color: #fff; }
+.segmente__btn--present[aria-pressed="true"] { background: var(--vert); }
+.segmente__btn--desiste[aria-pressed="true"] { background: var(--rouge); }
+
+/* Notation : échelle 0-10 en gros boutons tactiles */
+.progression { font-weight: 800; color: var(--nuit); }
+.form-notes { margin-top: 14px; }
+.critere { margin: 0 0 14px; }
+.critere legend { font: 600 1.05rem var(--police-titre); color: var(--nuit); }
+.coef { font: 400 .9rem var(--police); color: var(--brun-doux); }
+.echelle { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+@media (min-width: 420px) { .echelle { grid-template-columns: repeat(11, 1fr); } }
+.echelle input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.echelle label { display: grid; place-items: center; min-height: 44px; border-radius: 10px; border: 2px solid #b8b2cc; font-weight: 800; cursor: pointer; background: #fff; }
+.echelle input:checked + label { background: var(--caramel); border-color: var(--caramel); color: #fff; }
+.echelle input:focus-visible + label { outline: 3px solid var(--focus); outline-offset: 2px; }
+.etat-notation { margin: 2px 0 0; font-weight: 800; color: var(--caramel-fonce); }
+.etat-notation[data-complet="true"] { color: var(--vert); }
+.msg-notes { margin: 8px 0 0; font-weight: 700; }
+.msg-notes:empty { display: none; }
+.msg-notes--ok { color: var(--vert); }
+.msg-notes--erreur { color: var(--rouge); }
+
+/* Classement */
+.tableau-defile { overflow-x: auto; margin: 12px 0; background: #fff; border-radius: 14px; }
+.tableau-classement { width: 100%; border-collapse: collapse; }
+.tableau-classement th, .tableau-classement td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--bordure); vertical-align: top; }
+.tableau-classement thead th { background: var(--nuit); color: #fff; font-size: .9rem; }
+.tableau-classement .num { white-space: nowrap; }
+.rang { font: 700 1.4rem var(--police-titre); color: var(--nuit); white-space: nowrap; }
+.podium--1 .rang::before { content: "🥇 "; }
+.podium--2 .rang::before { content: "🥈 "; }
+.podium--3 .rang::before { content: "🥉 "; }
+.petit { font-size: .9rem; color: var(--brun-doux); }
+.ex-aequo { display: inline-block; margin-top: 4px; background: var(--jaune); color: var(--nuit); border-radius: 999px; padding: 1px 10px; font-size: .85rem; font-weight: 800; }
+.detail-notes { margin-top: 20px; }
+.detail-notes summary { cursor: pointer; font-weight: 800; min-height: 32px; }
+.liste-simple { padding-left: 1.2em; }
+.liste-simple li { margin-bottom: 4px; overflow-wrap: anywhere; }
+#btn-actualiser-classement { margin-bottom: 8px; }

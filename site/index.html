@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Concours « Pâtisserie d'hiver » — Le Four du Canal</title>
+  <meta name="description" content="Concours amateur de pâtisserie du Four du Canal, samedi 5 décembre 2026 : thème « Pâtisserie d'hiver », inscription gratuite, 20 places.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="lien-evitement" href="#inscription">Aller directement au formulaire d'inscription</a>
+
+  <header class="entete">
+    <div class="conteneur entete__in">
+      <span class="marque">Le Four du Canal</span>
+      <a class="entete__retour" id="lien-wordpress" hidden>← Retour au site</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero__flocons" aria-hidden="true"></div>
+      <div class="conteneur hero__grille">
+        <div class="hero__texte">
+          <p class="surtitre">Concours amateur de pâtisserie</p>
+          <h1>Pâtisserie <span class="h1-accent">d'hiver</span></h1>
+          <p class="hero__accroche">Vous pâtissez chez vous pour le plaisir ? Pour une fois, faites goûter votre plus belle création d'hiver à un vrai jury, et repartez avec son avis.</p>
+          <ul class="pastilles">
+            <li class="pastille--jaune">Gratuit</li>
+            <li class="pastille--menthe">Amateurs, 18 ans et plus</li>
+            <li class="pastille--rose">20 places</li>
+          </ul>
+          <a class="bouton bouton--hero" href="#inscription" id="cta-hero">Je m'inscris</a>
+          <p class="places" id="places" aria-live="polite"></p>
+        </div>
+        <div class="hero__visuel">
+          <svg class="gateau" viewBox="0 0 240 220" role="img" aria-label="Illustration : un gâteau d'hiver">
+            <ellipse cx="120" cy="200" rx="95" ry="10" fill="#0f1840" opacity=".35"/>
+            <rect x="35" y="130" width="170" height="68" rx="14" fill="#ffd6e4"/>
+            <rect x="35" y="130" width="170" height="16" rx="8" fill="#ff5c8d"/>
+            <rect x="55" y="80" width="130" height="58" rx="12" fill="#fff4e0"/>
+            <path d="M55 92 q16 16 32 0 q16 16 32 0 q16 16 32 0 q16 16 34 0 v-6 a12 12 0 0 0 -12 -6 h-106 a12 12 0 0 0 -12 12z" fill="#ffffff"/>
+            <circle cx="120" cy="62" r="13" fill="#e0336f"/>
+            <path d="M120 49 q6 -14 18 -16" stroke="#2bb39a" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <g fill="#ffc94a"><rect x="70" y="160" width="10" height="4" rx="2" transform="rotate(-20 75 162)"/><rect x="110" y="172" width="10" height="4" rx="2" transform="rotate(25 115 174)"/><rect x="150" y="158" width="10" height="4" rx="2" transform="rotate(-35 155 160)"/><rect x="175" y="178" width="10" height="4" rx="2" transform="rotate(15 180 180)"/></g>
+            <g fill="#2bb39a"><circle cx="92" cy="182" r="3"/><circle cx="135" cy="155" r="3"/><circle cx="60" cy="176" r="3"/></g>
+            <g stroke="#ffffff" stroke-width="3" stroke-linecap="round"><path d="M28 40 v24 M16 52 h24 M20 44 l16 16 M36 44 l-16 16"/><path d="M212 26 v18 M203 35 h18"/><path d="M200 95 v14 M193 102 h14"/></g>
+          </svg>
+          <div class="ticket">
+            <p class="ticket__jour">Samedi</p>
+            <p class="ticket__date">5 déc.</p>
+            <p class="ticket__heure">14 h – 18 h</p>
+            <p class="ticket__lieu">À la pâtisserie Le Four du Canal<br><span class="a-preciser">adresse à préciser</span></p>
+          </div>
+        </div>
+      </div>
+      <svg class="vague" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 C240 70 480 0 720 30 S1200 60 1440 25 V60 H0Z" fill="currentColor"/></svg>
+    </section>
+
+    <section class="bloc conteneur" aria-labelledby="t-vivre">
+      <h2 id="t-vivre">Ce que vous allez vivre</h2>
+      <ul class="benefices">
+        <li><strong>Un vrai verdict.</strong> Trois jurés goûtent votre création et la notent selon des critères connus à l'avance.</li>
+        <li><strong>Un après-midi entre passionnés.</strong> Retrouvez d'autres pâtissiers amateurs autour d'un même thème, à la pâtisserie.</li>
+        <li><strong>Votre création à l'honneur.</strong> Le classement est annoncé sur place, le jour même.</li>
+      </ul>
+      <a class="bouton" href="#inscription">Je réserve ma place</a>
+    </section>
+
+    <section class="bloc conteneur" aria-labelledby="t-principe">
+      <h2 id="t-principe">Le principe</h2>
+      <div class="grille-3">
+        <div class="carte carte--rose">
+          <span class="carte__num" aria-hidden="true">1</span>
+          <h3>Créez chez vous</h3>
+          <p>Un thème unique : <strong>« Pâtisserie d'hiver »</strong>. Vous réalisez votre création à domicile, librement, dans une seule catégorie.</p>
+        </div>
+        <div class="carte carte--jaune">
+          <span class="carte__num" aria-hidden="true">2</span>
+          <h3>Apportez-la le jour J</h3>
+          <p>Le samedi 5 décembre à 14 h, déposez votre création à la pâtisserie avec sa fiche allergènes.</p>
+        </div>
+        <div class="carte carte--menthe">
+          <span class="carte__num" aria-hidden="true">3</span>
+          <h3>Le jury déguste</h3>
+          <p>Trois jurés notent chaque création. Les résultats sont annoncés sur place, avant 18 h.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloc bloc--clair" aria-labelledby="t-notation">
+      <div class="conteneur">
+        <h2 id="t-notation">Comment le jury note</h2>
+        <p>Chaque juré note votre création sur trois critères, de 0 à 10 :</p>
+        <table class="bareme">
+          <caption class="sr-only">Critères de notation et coefficients</caption>
+          <thead><tr><th scope="col">Critère</th><th scope="col">Note</th><th scope="col">Poids</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Goût</th><td>sur 10</td><td><strong>× 2</strong></td></tr>
+            <tr><th scope="row">Aspect visuel</th><td>sur 10</td><td>× 1</td></tr>
+            <tr><th scope="row">Créativité et respect du thème</th><td>sur 10</td><td>× 1</td></tr>
+          </tbody>
+        </table>
+        <ul class="liste">
+          <li>La note de chaque juré est ramenée <strong>sur 20</strong>.</li>
+          <li>Votre note finale est la <strong>moyenne des trois jurés</strong> ; le classement va de la meilleure note à la moins bonne.</li>
+          <li>En cas d'égalité, la meilleure moyenne en <strong>Goût</strong> l'emporte ; si l'égalité persiste, le jury décide.</li>
+          <li>Le classement reste confidentiel jusqu'à la proclamation des résultats.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="bloc bloc--clair" aria-labelledby="t-hesite">
+      <div class="conteneur">
+        <h2 id="t-hesite">Vous hésitez encore ?</h2>
+        <dl class="faq">
+          <div><dt>« Je ne suis pas assez doué·e. »</dt><dd>Le concours est réservé aux amateurs : les professionnels ne participent pas. Vous concourez entre passionnés.</dd></div>
+          <div><dt>« Le jury, ça m'intimide. »</dt><dd>Les jurés notent votre création sous un numéro, sans voir votre nom, avec un barème publié sur cette page.</dd></div>
+          <div><dt>« Je n'ai pas encore d'idée. »</dt><dd>Un nom provisoire suffit pour vous inscrire ; vous le préciserez le jour J.</dd></div>
+          <div><dt>« Combien ça coûte ? »</dt><dd>Rien : l'inscription est gratuite, aucun paiement n'est demandé.</dd></div>
+          <div><dt>« Et mes données ? »</dt><dd>Nous ne demandons que le strict nécessaire, et tout est supprimé trois mois après le concours.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="bloc conteneur" id="le-reglement" aria-labelledby="t-reglement">
+      <h2 id="t-reglement">Règlement</h2>
+      <ol class="liste">
+        <li>Le concours est ouvert aux pâtissiers <strong>amateurs âgés de 18 ans et plus</strong>. Les professionnels ne peuvent pas participer.</li>
+        <li>L'inscription est <strong>gratuite</strong>, individuelle, et limitée à <strong>20 participants</strong> (une inscription par adresse e-mail), dans l'ordre d'arrivée.</li>
+        <li>Chaque participant présente <strong>une seule création</strong> sur le thème « Pâtisserie d'hiver », réalisée à domicile et apportée le samedi 5 décembre 2026 à 14 h.</li>
+        <li>La création est accompagnée d'une <strong>fiche listant ses allergènes</strong>.</li>
+        <li>Le jury, composé de trois personnes, note selon les critères ci-dessus.</li>
+        <li>Des photos pourront être prises le jour J ; elles ne concerneront que les participants ayant donné leur accord.</li>
+      </ol>
+    </section>
+
+    <section class="bloc bloc--formulaire" id="inscription" aria-labelledby="t-inscription">
+      <div class="conteneur conteneur--etroit">
+        <h2 id="t-inscription">Inscription</h2>
+        <p class="promesse">Réservez votre place pour faire goûter votre création au jury, le samedi 5 décembre.</p>
+        <ul class="reassurance">
+          <li>Gratuit</li>
+          <li>Quelques minutes</li>
+          <li>Données minimales</li>
+          <li id="reassurance-places">20 places seulement</li>
+        </ul>
+        <p class="aide">Les champs marqués <span aria-hidden="true">*</span><span class="sr-only">d'un astérisque</span> sont obligatoires.</p>
+
+        <div id="alerte" class="alerte" role="alert" tabindex="-1" hidden></div>
+
+        <form id="form-inscription" novalidate>
+          <fieldset>
+            <legend>Vous</legend>
+            <div class="champ">
+              <label for="prenom">Prénom <span aria-hidden="true">*</span></label>
+              <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="80" required aria-describedby="err-prenom">
+              <p class="erreur" id="err-prenom"></p>
+            </div>
+            <div class="champ">
+              <label for="nom">Nom <span aria-hidden="true">*</span></label>
+              <input id="nom" name="nom" type="text" autocomplete="family-name" maxlength="80" required aria-describedby="err-nom">
+              <p class="erreur" id="err-nom"></p>
+            </div>
+            <div class="champ">
+              <label for="email">Adresse e-mail <span aria-hidden="true">*</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="err-email">
+              <p class="erreur" id="err-email"></p>
+            </div>
+            <div class="champ">
+              <label for="telephone">Téléphone <span class="facultatif">(facultatif)</span></label>
+              <p class="indication" id="ind-telephone">Utile seulement pour vous joindre le jour J.</p>
+              <input id="telephone" name="telephone" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="ind-telephone err-telephone">
+              <p class="erreur" id="err-telephone"></p>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Votre création</legend>
+            <div class="champ">
+              <label for="nom_creation">Nom de la création <span aria-hidden="true">*</span></label>
+              <p class="indication" id="ind-nom_creation">Un nom provisoire suffit, vous pourrez le préciser le jour J.</p>
+              <input id="nom_creation" name="nom_creation" type="text" maxlength="120" required aria-describedby="ind-nom_creation err-nom_creation">
+              <p class="erreur" id="err-nom_creation"></p>
+            </div>
+            <div class="champ">
+              <label for="description">Description <span class="facultatif">(facultatif)</span></label>
+              <p class="indication" id="ind-description">En quelques mots : saveurs, technique, inspiration…</p>
+              <textarea id="description" name="description" rows="3" maxlength="600" aria-describedby="ind-description err-description"></textarea>
+              <p class="erreur" id="err-description"></p>
+            </div>
+            <div class="champ">
+              <label for="allergenes">Allergènes présents dans la création <span aria-hidden="true">*</span></label>
+              <p class="indication" id="ind-allergenes">Exemple : gluten, œufs, lait, fruits à coque. Écrivez « aucun » s'il n'y en a pas.</p>
+              <input id="allergenes" name="allergenes" type="text" maxlength="300" required aria-describedby="ind-allergenes err-allergenes">
+              <p class="erreur" id="err-allergenes"></p>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Conditions et accords</legend>
+            <div class="case">
+              <input id="majeur" name="majeur" type="checkbox" aria-describedby="err-majeur">
+              <label for="majeur">J'atteste sur l'honneur avoir 18 ans ou plus et être pâtissier ou pâtissière amateur. <span aria-hidden="true">*</span></label>
+              <p class="erreur" id="err-majeur"></p>
+            </div>
+            <div class="case">
+              <input id="reglement" name="reglement" type="checkbox" aria-describedby="err-reglement">
+              <label for="reglement">J'ai lu et j'accepte le <a href="#le-reglement">règlement du concours</a>. <span aria-hidden="true">*</span></label>
+              <p class="erreur" id="err-reglement"></p>
+            </div>
+            <div class="case">
+              <input id="donnees" name="donnees" type="checkbox" aria-describedby="err-donnees">
+              <label for="donnees">J'accepte que mes données soient utilisées pour organiser le concours (voir l'information ci-dessous). <span aria-hidden="true">*</span></label>
+              <p class="erreur" id="err-donnees"></p>
+            </div>
+            <div class="case case--facultative">
+              <input id="image" name="image" type="checkbox">
+              <label for="image">J'accepte d'être pris·e en photo le jour J et que ces photos soient publiées par Le Four du Canal. <span class="facultatif">(facultatif : vous pouvez participer sans cocher cette case)</span></label>
+            </div>
+          </fieldset>
+
+          <button class="bouton bouton--plein" type="submit" id="btn-envoyer">Envoyer mon inscription</button>
+        </form>
+
+        <div id="confirmation" class="confirmation" hidden tabindex="-1"></div>
+
+        <details class="rgpd">
+          <summary>Information sur vos données personnelles</summary>
+          <p><strong>Responsable du traitement :</strong> Le Four du Canal (gérante, nom à préciser), <span id="rgpd-adresse">[adresse à préciser]</span>.</p>
+          <p><strong>Finalité :</strong> organisation du concours (gestion des inscriptions, accueil le jour J, notation, annonce des résultats). Base légale : votre consentement.</p>
+          <p><strong>Données collectées :</strong> nom, prénom, e-mail, téléphone (facultatif), informations sur votre création, attestation de majorité et vos accords. Aucune date de naissance ni adresse postale.</p>
+          <p><strong>Destinataires :</strong> la gérante et l'équipe organisatrice. Les jurés ne voient ni votre nom ni vos coordonnées, seulement votre création.</p>
+          <p><strong>Durée de conservation :</strong> vos données sont supprimées <span id="rgpd-duree"></span>.</p>
+          <p><strong>Vos droits :</strong> vous pouvez demander l'accès à vos données, leur rectification ou leur effacement, et retirer votre accord à tout moment, en écrivant à <span id="rgpd-contact"></span>. Vous pouvez aussi adresser une réclamation à la CNIL (cnil.fr).</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pied">
+    <div class="conteneur">
+      <p>Le Four du Canal — pâtisserie indépendante · <span class="a-preciser">adresse à préciser</span></p>
+      <p class="pied__proto">Prototype de démonstration : les données saisies ici ne servent qu'aux tests. · <a href="outil.html">Espace organisation</a></p>
+    </div>
+  </footer>
+
+  <script src="js/vendor/supabase.js"></script>
+  <script type="module" src="js/inscription.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+/* Le Four du Canal — styles communs (page publique + outil) */
+:root {
+  --creme: #fff8f1;          /* fond général */
+  --creme-fonce: #ffe9f0;    /* fond rose très clair */
+  --blanc: #ffffff;
+  --nuit: #1d2a5b;           /* bleu nuit d'hiver */
+  --nuit-fonce: #131c42;
+  --brun: #1d2340;           /* couleur du texte (encre) */
+  --brun-doux: #545a78;
+  --caramel: #e0336f;        /* framboise : boutons, accents */
+  --caramel-fonce: #b81d55;
+  --jaune: #ffc94a;
+  --menthe: #2bb39a;
+  --glace: #e8f1ff;
+  --vert: #1f7a52;
+  --vert-fond: #e6f6ee;
+  --rouge: #b3261e;
+  --rouge-fond: #fdeceb;
+  --bordure: #e6d9e4;
+  --focus: #1f5fbf;
+  --rayon: 18px;
+  --police-titre: 'Fredoka', 'Trebuchet MS', system-ui, sans-serif;
+  --police: 'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--creme); color: var(--brun); font-family: var(--police); font-size: 1.0625rem; line-height: 1.55; }
+img { max-width: 100%; }
+h1, h2, h3 { font-family: var(--police-titre); line-height: 1.2; margin: 0 0 .5em; }
+h1 { font-size: clamp(2.1rem, 7vw, 3.6rem); }
+h2 { font-size: clamp(1.6rem, 4.5vw, 2.2rem); }
+h3 { font-size: 1.2rem; }
+p { margin: 0 0 1em; }
+a { color: var(--caramel-fonce); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+.conteneur { width: 100%; max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+.conteneur--etroit { max-width: 640px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.lien-evitement { position: absolute; left: -999px; top: 8px; background: var(--nuit); color: #fff; padding: 8px 12px; z-index: 10; }
+.lien-evitement:focus { left: 8px; }
+.a-preciser { color: var(--brun-doux); font-style: italic; }
+
+/* En-tête */
+.entete { background: var(--nuit-fonce); color: #fff; }
+.entete__in { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 56px; flex-wrap: wrap; }
+.marque { font-family: var(--police-titre); font-weight: 700; font-size: 1.3rem; letter-spacing: .01em; }
+.marque::before { content: "✦ "; color: var(--jaune); }
+.entete a { color: #fff; }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; background: radial-gradient(circle at 80% 10%, #33468f 0, transparent 45%), var(--nuit); color: #fff; padding: 44px 0 0; }
+.hero__flocons { position: absolute; inset: 0; pointer-events: none; opacity: .55;
+  background-image: radial-gradient(#fff 1.4px, transparent 1.6px), radial-gradient(#fff 1px, transparent 1.2px);
+  background-size: 90px 90px, 55px 55px; background-position: 0 0, 25px 35px; }
+.hero__grille { position: relative; display: grid; gap: 28px; align-items: center; grid-template-columns: 1fr; padding-bottom: 36px; }
+@media (min-width: 820px) { .hero__grille { grid-template-columns: 1.25fr 1fr; padding-bottom: 56px; } }
+.surtitre { display: inline-block; text-transform: uppercase; letter-spacing: .1em; font-weight: 800; color: var(--nuit); background: var(--jaune); border-radius: 999px; padding: 4px 14px; font-size: .82rem; margin-bottom: 14px; }
+.hero h1 { font-size: clamp(2.6rem, 10vw, 4.6rem); font-weight: 700; margin-bottom: .3em; }
+.h1-accent { color: #ff8db0; display: inline-block; transform: rotate(-3deg); }
+.hero__accroche { max-width: 32em; font-size: 1.12rem; color: #e3e8ff; }
+.hero__visuel { position: relative; display: flex; flex-direction: column; align-items: center; gap: 0; }
+.gateau { width: min(100%, 300px); height: auto; animation: flotte 5s ease-in-out infinite; }
+@keyframes flotte { 50% { transform: translateY(-8px) rotate(-1deg); } }
+@media (prefers-reduced-motion: reduce) { .gateau { animation: none; } }
+.ticket { margin-top: -6px; background: #fff; color: var(--brun); border-radius: var(--rayon); padding: 14px 22px; text-align: center; box-shadow: 0 10px 0 var(--caramel); transform: rotate(2deg); max-width: 280px; }
+.ticket p { margin: 0; }
+.ticket__jour { font-weight: 800; text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; color: var(--caramel); }
+.ticket__date { font-family: var(--police-titre); font-weight: 700; font-size: 2.2rem; line-height: 1.1; }
+.ticket__heure { font-weight: 700; }
+.ticket__lieu { font-size: .9rem; margin-top: 6px !important; color: var(--brun-doux); }
+.hero .a-preciser { color: inherit; opacity: .85; }
+.pastilles { list-style: none; padding: 0; margin: 0 0 22px; display: flex; flex-wrap: wrap; gap: 8px; }
+.pastilles li { border-radius: 999px; padding: 5px 14px; font-weight: 800; font-size: .95rem; color: var(--nuit); }
+.pastille--jaune { background: var(--jaune); transform: rotate(-2deg); }
+.pastille--menthe { background: #9fe6d6; transform: rotate(1.5deg); }
+.pastille--rose { background: #ffc2d5; transform: rotate(-1deg); }
+.places { font-weight: 700; min-height: 1.5em; margin-top: 12px; color: #fff; }
+.places--complet { color: #ffb4b4; }
+.vague { display: block; width: 100%; height: 40px; color: var(--creme); position: relative; }
+
+/* Boutons */
+.bouton { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 10px 26px; border-radius: 999px; border: 2px solid var(--caramel); background: var(--caramel); color: #fff; font: 800 1.05rem var(--police); text-decoration: none; cursor: pointer; transition: transform .15s, box-shadow .15s; box-shadow: 0 4px 0 var(--caramel-fonce); }
+.bouton:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--caramel-fonce); }
+.bouton--hero { font-size: 1.15rem; min-height: 56px; padding: 12px 34px; box-shadow: 0 5px 0 #8f1340; }
+.bouton:hover { background: var(--caramel-fonce); border-color: var(--caramel-fonce); }
+.bouton[disabled], .bouton[aria-disabled="true"] { opacity: .6; cursor: not-allowed; }
+.bouton--plein { width: 100%; }
+.bouton--secondaire { background: transparent; color: var(--caramel-fonce); }
+.bouton--secondaire:hover { background: var(--creme-fonce); color: var(--caramel-fonce); }
+.bouton--petit { min-height: 40px; padding: 6px 14px; font-size: .95rem; }
+.bouton--danger { background: transparent; border-color: var(--rouge); color: var(--rouge); }
+.bouton--danger:hover { background: var(--rouge-fond); border-color: var(--rouge); }
+
+/* Blocs */
+.bloc { padding: 48px 16px; }
+.bloc.conteneur { padding-left: 16px; padding-right: 16px; }
+.bloc--clair { background: var(--glace); }
+.bloc--formulaire { background: var(--creme-fonce); }
+.bloc--formulaire form, .bloc--formulaire .confirmation { background: #fff; border-radius: 24px; padding: 24px 18px; box-shadow: 0 8px 30px rgba(29,42,91,.08); }
+@media (min-width: 600px) { .bloc--formulaire form { padding: 32px; } }
+h2 { position: relative; display: inline-block; }
+h2::after { content: ""; display: block; height: 8px; margin-top: 4px; border-radius: 99px; background: var(--jaune); width: 60%; }
+.grille-3 { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.carte { position: relative; background: var(--blanc); border-radius: var(--rayon); padding: 26px 20px 20px; border: 2px solid var(--nuit); box-shadow: 6px 6px 0 var(--nuit); }
+.carte__num { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; font: 700 1.3rem var(--police-titre); color: var(--nuit); margin-bottom: 10px; }
+.carte--rose .carte__num { background: #ffc2d5; } .carte--jaune .carte__num { background: var(--jaune); } .carte--menthe .carte__num { background: #9fe6d6; }
+.carte p:last-child { margin: 0; }
+.liste { padding-left: 1.3em; }
+.liste li { margin-bottom: .5em; }
+
+.bareme { border-collapse: collapse; width: 100%; max-width: 560px; margin: 8px 0 20px; background: #fff; border-radius: var(--rayon); overflow: hidden; }
+.bareme th, .bareme td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--bordure); }
+.bareme td { white-space: nowrap; }
+.bareme thead th { background: var(--nuit); color: #fff; font-size: .95rem; }
+
+/* Formulaire */
+fieldset { border: 0; padding: 0; margin: 0 0 24px; }
+legend { font-family: var(--police-titre); font-weight: 600; color: var(--caramel-fonce); font-size: 1.2rem; margin-bottom: 8px; padding: 0; }
+.champ { margin-bottom: 16px; }
+.champ label { display: block; font-weight: 600; margin-bottom: 4px; }
+.indication { font-size: .95rem; color: var(--brun-doux); margin: 0 0 6px; }
+.facultatif { font-weight: 400; color: var(--brun-doux); }
+input[type="text"], input[type="email"], input[type="tel"], input[type="password"], input[type="search"], input[type="number"], textarea, select {
+  width: 100%; font: 1rem/1.4 var(--police); font-size: 16px; /* 16px : évite le zoom automatique sur iPhone */
+  padding: 12px; border: 1.5px solid #b8b2cc; border-radius: 10px; background: var(--blanc); color: var(--brun);
+}
+textarea { resize: vertical; }
+input:focus, textarea:focus, select:focus { border-color: var(--focus); }
+[aria-invalid="true"] { border-color: var(--rouge) !important; background: var(--rouge-fond) !important; }
+.erreur { color: var(--rouge); font-weight: 600; font-size: .95rem; margin: 4px 0 0; }
+.erreur:empty { display: none; }
+.case { display: grid; grid-template-columns: 28px 1fr; gap: 4px 8px; align-items: start; margin-bottom: 14px; }
+.case input { width: 22px; height: 22px; margin: 2px 0 0; accent-color: var(--caramel); }
+.case .erreur { grid-column: 2; }
+.case--facultative { padding-top: 12px; border-top: 1px dashed var(--bordure); }
+
+.alerte { border-radius: var(--rayon); padding: 14px 16px; margin-bottom: 20px; font-weight: 600; background: var(--rouge-fond); color: var(--rouge); border: 1.5px solid var(--rouge); }
+.alerte ul { margin: 8px 0 0; padding-left: 1.2em; font-weight: 400; }
+.alerte a { color: var(--rouge); }
+.alerte--info { background: var(--blanc); color: var(--brun); border-color: var(--bordure); }
+
+.confirmation { background: var(--vert-fond); border: 1.5px solid var(--vert); border-radius: var(--rayon); padding: 20px; }
+.confirmation h3 { color: var(--vert); }
+
+/* Aperçu d'e-mail (non envoyé) */
+.apercu-mail { margin-top: 16px; background: var(--blanc); border: 1.5px dashed var(--brun-doux); border-radius: var(--rayon); overflow: hidden; }
+.apercu-mail__bandeau { margin: 0; background: var(--nuit); color: #fff; padding: 8px 12px; font-weight: 600; font-size: .95rem; }
+.apercu-mail dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 12px; margin: 0; padding: 12px; border-bottom: 1px solid var(--bordure); font-size: .95rem; }
+.apercu-mail dt { font-weight: 600; }
+.apercu-mail dd { margin: 0; overflow-wrap: anywhere; }
+.apercu-mail pre { margin: 0; padding: 12px; white-space: pre-wrap; overflow-wrap: anywhere; font: .98rem/1.5 var(--police); }
+
+.rgpd { margin-top: 28px; background: var(--blanc); border: 1px solid var(--bordure); border-radius: var(--rayon); padding: 12px 16px; font-size: .95rem; }
+.rgpd summary { cursor: pointer; font-weight: 600; min-height: 32px; }
+.rgpd p { margin: .6em 0; }
+
+.pied { background: var(--nuit-fonce); color: #e3e8ff; padding: 24px 0; font-size: .95rem; }
+.pied p { margin: .3em 0; }
+.pied a { color: #fff; }
+.pied__proto { opacity: .8; }
+
+/* Téléphone : date visible tout de suite (gâteau + ticket côte à côte, en haut) */
+@media (max-width: 819px) {
+  .hero { padding-top: 24px; }
+  .hero__visuel { order: -1; flex-direction: row; justify-content: center; gap: 10px; }
+  .gateau { width: 120px; flex-shrink: 0; }
+  .ticket { margin-top: 0; padding: 10px 14px; transform: rotate(2deg); box-shadow: 0 6px 0 var(--caramel); }
+  .ticket__date { font-size: 1.8rem; }
+  .ticket__lieu { font-size: .82rem; }
+}
+
+/* Bénéfices, objections, réassurance (méthode AIDA / tableau des croyances) */
+.benefices { list-style: none; padding: 0; margin: 0 0 24px; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.benefices li { background: #fff; border-radius: var(--rayon); padding: 18px 18px 18px 52px; position: relative; box-shadow: 0 6px 20px rgba(29,42,91,.08); }
+.benefices li::before { content: "✦"; position: absolute; left: 18px; top: 16px; font-size: 1.3rem; color: var(--caramel); }
+.benefices strong { display: block; font-family: var(--police-titre); font-weight: 600; font-size: 1.15rem; color: var(--nuit); margin-bottom: 2px; }
+.faq { margin: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.faq div { background: #fff; border-radius: var(--rayon); padding: 16px 18px; border-left: 6px solid var(--menthe); }
+.faq dt { font-weight: 800; color: var(--nuit); margin-bottom: 4px; }
+.faq dd { margin: 0; }
+.promesse { font-size: 1.15rem; font-weight: 700; color: var(--nuit); }
+.reassurance { list-style: none; padding: 0; margin: 0 0 16px; display: flex; flex-wrap: wrap; gap: 6px 16px; font-weight: 700; color: var(--vert); }
+.reassurance li::before { content: "✓ "; }

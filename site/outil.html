@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Espace organisation — Concours Le Four du Canal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/outil.css">
+</head>
+<body class="outil">
+  <header class="entete">
+    <div class="conteneur entete__in">
+      <span class="marque">Le Four du Canal · Espace organisation</span>
+      <div class="entete__session" id="session" hidden>
+        <span class="badge-role" id="badge-role"></span>
+        <span id="nom-utilisateur"></span>
+        <button class="bouton bouton--petit bouton--clair" id="btn-deconnexion" type="button">Se déconnecter</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="conteneur outil__main">
+    <p id="chargement" class="aide">Chargement…</p>
+
+    <!-- Connexion -->
+    <section id="vue-connexion" class="carte-outil carte-outil--etroite" hidden aria-labelledby="t-connexion">
+      <h1 id="t-connexion">Connexion</h1>
+      <p>Cet espace est réservé à l'équipe du concours (gérante, équipe, jurés).</p>
+      <div id="alerte-connexion" class="alerte" role="alert" hidden></div>
+      <form id="form-connexion" novalidate>
+        <div class="champ">
+          <label for="cx-email">Adresse e-mail</label>
+          <input id="cx-email" type="email" autocomplete="username" inputmode="email" required>
+        </div>
+        <div class="champ">
+          <label for="cx-mdp">Mot de passe</label>
+          <input id="cx-mdp" type="password" autocomplete="current-password" required>
+        </div>
+        <button class="bouton bouton--plein" type="submit" id="btn-connexion">Se connecter</button>
+      </form>
+      <p class="aide aide--petite">Mot de passe oublié : demandez à la gérante de le réinitialiser depuis Supabase (pas de réinitialisation automatique dans le prototype).</p>
+    </section>
+
+    <!-- Application -->
+    <section id="vue-app" hidden>
+      <nav class="onglets" id="onglets" aria-label="Sections de l'outil"></nav>
+      <div id="alerte-app" class="alerte" role="alert" hidden></div>
+
+      <!-- Participants (gérante, équipe) -->
+      <section id="panneau-participants" class="panneau" hidden aria-labelledby="t-participants">
+        <h1 id="t-participants">Participants</h1>
+        <div class="compteurs" id="compteurs"></div>
+        <div class="filtres">
+          <div class="champ">
+            <label for="recherche">Rechercher</label>
+            <input id="recherche" type="search" placeholder="Nom, e-mail, création ou n° de dossard">
+          </div>
+          <div class="champ">
+            <label for="filtre-statut">Statut</label>
+            <select id="filtre-statut">
+              <option value="">Tous</option>
+              <option value="inscrit">Inscrits</option>
+              <option value="present">Présents</option>
+              <option value="desiste">Désistés</option>
+            </select>
+          </div>
+        </div>
+        <div id="liste-participants" class="liste-cartes" aria-live="polite"></div>
+      </section>
+
+      <!-- Notation (jurés) -->
+      <section id="panneau-notation" class="panneau" hidden aria-labelledby="t-notation">
+        <h1 id="t-notation">Noter les créations</h1>
+        <p class="aide">Pour chaque création : choisissez une note de 0 à 10 par critère, puis « Enregistrer mes notes ». Vous pouvez corriger vos notes à tout moment. Vous ne voyez ni le nom des participants ni les notes des autres jurés.</p>
+        <p class="progression" id="progression-notation"></p>
+        <div id="liste-notation" class="liste-cartes"></div>
+      </section>
+
+      <!-- Classement (gérante) -->
+      <section id="panneau-classement" class="panneau" hidden aria-labelledby="t-classement">
+        <h1 id="t-classement">Classement</h1>
+        <p class="aide">Confidentiel jusqu'à la proclamation. Calcul : pour chaque juré, (Goût × 2 + Aspect + Créativité) ramené sur 20 ; note finale = moyenne des jurés ; égalité départagée par la moyenne en Goût, puis décision du jury. Seuls les participants notés par tous les jurés sont classés.</p>
+        <button class="bouton bouton--petit bouton--secondaire" id="btn-actualiser-classement" type="button">Actualiser le classement</button>
+        <div id="classement"></div>
+      </section>
+
+      <!-- E-mails (gérante) -->
+      <section id="panneau-emails" class="panneau" hidden aria-labelledby="t-emails">
+        <h1 id="t-emails">E-mails</h1>
+        <p class="alerte alerte--info">Prototype : <strong>aucun e-mail n'est envoyé</strong>. Cette page montre seulement le contenu prévu, son déclencheur et ses destinataires (envoi automatique prévu en V2).</p>
+        <div class="champ">
+          <label for="choix-participant-mail">Participant</label>
+          <select id="choix-participant-mail"></select>
+        </div>
+        <div id="apercus-emails"></div>
+        <h2 class="h2-simple">Destinataires du rappel (inscrits et présents)</h2>
+        <ul id="destinataires-rappel" class="liste-simple"></ul>
+      </section>
+
+      <!-- Critères (tous) -->
+      <section id="panneau-criteres" class="panneau" hidden aria-labelledby="t-criteres">
+        <h1 id="t-criteres">Critères de notation</h1>
+        <table class="bareme">
+          <thead><tr><th scope="col">Critère</th><th scope="col">Note</th><th scope="col">Coefficient</th><th scope="col">Départage</th></tr></thead>
+          <tbody id="tbody-criteres"></tbody>
+        </table>
+        <p class="aide" id="aide-criteres"></p>
+      </section>
+    </section>
+  </main>
+
+  <script src="js/vendor/supabase.js"></script>
+  <script type="module" src="js/outil.js"></script>
+</body>
+</html>
